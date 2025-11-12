@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Code</h1>
+      <script type="text/plain">
+                #include <stdio.h>
+                #include <stdlib.h>
+                #include <time.h>
+                #include <string.h>
+
+                  int main() {
+
+        // Algorithm of counting how many times a dice roll came for n rolls
+        srand(time(0));
+        int x[7] = {0};
+
+        int z[7] = {0};
+        int doubles[7] = {0};
+
+        int y[100], n = 100, d, j, i, k;
+        for (i = 1; i <= n; i++) // runs loop 100 times
+        {
+          d = rand() % 6 + 1; // generates random number form [1 ; 6]
+          k = rand() % 6 + 1;
+
+          for (j = 1; j <= 6; j++) // for each first loop iteration runs this loop 6 times
+          {
+            if (d == j)
+              // if RANDOMNUMBER matches LOOP ITERATION in int[x] array increment current iteration value of the array respectively to its index by 1
+              x[j]++;
+
+            if (k == j)
+              z[j]++;
+
+            if (d == j && k == j) // if 1st random dice number equals 2nd dice random number and they are equal increment doubles value by 1
+              doubles[j]++;
+          }
+        }
+
+        printf("---------------------------------------------------- \n");
+        for (i = 1; i <= 6; i++)
+        {
+          printf("x[%d] = %d \n", i, x[i]);
+          printf("z[%d] = %d \n", i, z[i]);
+          printf("doubles[%d] = %d \n", i, doubles[i]);
+          printf("\n");
+        }
+
+        return 0;
+                  }
+      </script>
+    </div>
+  </body>
+</html>
